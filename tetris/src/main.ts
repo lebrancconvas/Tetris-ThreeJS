@@ -1,8 +1,25 @@
-import './style.css'
+import * as THREE from 'three';
+import MainScene from './Scene/MainScene';
 
-const app = document.querySelector<HTMLDivElement>('#app')!
+// Setting
+const WIDTH = window.innerWidth;
+const HEIGHT = window.innerHeight;
+const aRatio = WIDTH / HEIGHT;
 
-app.innerHTML = `
-  <h1>Hello Vite!</h1>
-  <a href="https://vitejs.dev/guide/features.html" target="_blank">Documentation</a>
-`
+// Renderer 
+const renderer = new THREE.WebGLRenderer({
+  canvas: document.getElementById('app') as HTMLCanvasElement
+});
+
+renderer.setPixelRatio(window.devicePixelRatio);
+
+renderer.setSize(WIDTH, HEIGHT);
+
+// Camera 
+const camera = new THREE.PerspectiveCamera(60, aRatio, 0.1, 1000);
+
+
+// Scene 
+const scene = new THREE.Scene;
+
+renderer.render(scene, camera);
