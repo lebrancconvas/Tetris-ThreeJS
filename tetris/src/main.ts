@@ -44,8 +44,8 @@ textureLoader.load(texturePath, texture => {
 })
 
 // Grid
-const grid = new THREE.GridHelper(4, 12, 0x888888, 0x444444);
-scene.add(grid);
+// const grid = new THREE.GridHelper(4, 12, 0x888888, 0x444444);
+// scene.add(grid);
 
 // Orbital Controls
 const control = new OrbitControls(camera, renderer.domElement);
@@ -103,14 +103,14 @@ const Tetromino_S = () => {
     new THREE.MeshBasicMaterial({color: ColorTexture.BLUE})
   );
   cube2_3.position.x = 4;
-  cube2_3.position.y = 1;
+  cube2_3.position.y = 1.5;
 
   const cube2_4 = new THREE.Mesh(
     new THREE.BoxGeometry(),
     new THREE.MeshBasicMaterial({color: ColorTexture.BLUE})
   );
   cube2_4.position.x = 5;
-  cube2_4.position.y = 1;
+  cube2_4.position.y = 1.5;
 
   scene.add(cube2_1, cube2_2, cube2_3, cube2_4);
 }
@@ -283,6 +283,19 @@ Tetromino_L();
 Tetromino_J();
 Tetromino_Z();
 
+// Add Sound. 
+const listener = new THREE.AudioListener();
+camera.add(listener);
+
+const audioLoader = new THREE.AudioLoader();
+
+const bgm = new THREE.Audio(listener);
+
+audioLoader.load('assets/audio/BGM/Tetris_Theme.mp3', buffer => {
+  bgm.setBuffer(buffer);
+  bgm.setLoop(true);
+  bgm.setVolume(0.3);
+});
 
 function draw() {
   renderer.render(scene, camera);
