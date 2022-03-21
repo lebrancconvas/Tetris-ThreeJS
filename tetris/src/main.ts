@@ -15,16 +15,6 @@ const WIDTH = window.innerWidth;
 const HEIGHT = window.innerHeight;
 const aRatio = WIDTH / HEIGHT;
 
-enum ColorTexture {
-  SKY = 0x00f0ff,
-  RED = 0xff0000,
-  GREEN = 0x00ff00,
-  BLUE = 0x0000ff,
-  GRASS = 0x057812,
-  VIOLET = 0xad32ff,
-  SCARLET = 0xaf0f03
-}
-
 // Renderer 
 const renderer = new THREE.WebGLRenderer({
   canvas: document.getElementById('app') as HTMLCanvasElement
