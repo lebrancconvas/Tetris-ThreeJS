@@ -6,6 +6,6 @@ Tetris by using ThreeJS + Vite (Vanilla Typescript)
 
 ## Screenshot
 
-### Update (Monday 21 March 2022 - 23.31)
+### Update (Tuesday 22 March 2022 - 03.08)
 
-![Tetrominoes](screenshot/Tetrominoes.png)
+![Tetrominoes](screenshot/Tetrominoes_2.png)
