@@ -13,7 +13,8 @@ enum ColorTexture {
   GREEN = 0x00ff00,
   BLUE = 0x0000ff,
   GRASS = 0x057812,
-  VIOLET = 0xad32ff
+  VIOLET = 0xad32ff,
+  SCARLET = 0xaf0f03
 }
 
 // Renderer 
@@ -183,28 +184,28 @@ const Tetromino_L = () => {
     new THREE.BoxGeometry(),
     new THREE.MeshBasicMaterial({color: ColorTexture.GRASS})
   );
-  cube5_1.position.x = -10;
+  cube5_1.position.x = -9;
   cube5_1.position.y = 0.5;
 
   const cube5_2 = new THREE.Mesh(
     new THREE.BoxGeometry(),
     new THREE.MeshBasicMaterial({color: ColorTexture.GRASS})
   );
-  cube5_2.position.x = -10;
+  cube5_2.position.x = -9;
   cube5_2.position.y = 1.5;
 
   const cube5_3 = new THREE.Mesh(
     new THREE.BoxGeometry(),
     new THREE.MeshBasicMaterial({color: ColorTexture.GRASS})
   );
-  cube5_3.position.x = -10;
+  cube5_3.position.x = -9;
   cube5_3.position.y = 2.5;
 
   const cube5_4 = new THREE.Mesh(
     new THREE.BoxGeometry(),
     new THREE.MeshBasicMaterial({color: ColorTexture.GRASS})
   );
-  cube5_4.position.x = -9;
+  cube5_4.position.x = -8;
   cube5_4.position.y = 0.5;
 
   scene.add(cube5_1, cube5_2, cube5_3, cube5_4);
@@ -239,8 +240,39 @@ const Tetromino_J = () => {
   cube6_4.position.x = 8;
   cube6_4.position.y = 2.5;
 
-
   scene.add(cube6_1, cube6_2, cube6_3, cube6_4);
+}
+
+const Tetromino_Z = () => {
+  const cube7_1 = new THREE.Mesh(
+    new THREE.BoxGeometry(),
+    new THREE.MeshBasicMaterial({color: ColorTexture.SCARLET})
+  ); 
+  cube7_1.position.x = 10;
+  cube7_1.position.y = 1.5;
+  
+  const cube7_2 = new THREE.Mesh(
+    new THREE.BoxGeometry(),
+    new THREE.MeshBasicMaterial({color: ColorTexture.SCARLET})
+  ); 
+  cube7_2.position.x = 11;
+  cube7_2.position.y = 1.5;
+
+  const cube7_3 = new THREE.Mesh(
+    new THREE.BoxGeometry(),
+    new THREE.MeshBasicMaterial({color: ColorTexture.SCARLET})
+  ); 
+  cube7_3.position.x = 11;
+  cube7_3.position.y = 0.5;
+
+  const cube7_4 = new THREE.Mesh(
+    new THREE.BoxGeometry(),
+    new THREE.MeshBasicMaterial({color: ColorTexture.SCARLET})
+  ); 
+  cube7_4.position.x = 12;
+  cube7_4.position.y = 0.5;
+
+  scene.add(cube7_1, cube7_2, cube7_3, cube7_4);
 }
 
 Tetromino_T();
@@ -249,6 +281,7 @@ Tetromino_I();
 Tetromino_O();
 Tetromino_L();
 Tetromino_J();
+Tetromino_Z();
 
 
 function draw() {
