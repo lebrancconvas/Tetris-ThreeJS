@@ -2,6 +2,14 @@ import * as THREE from 'three';
 import MainScene from './Scene/MainScene';
 import {OrbitControls} from 'three/examples/jsm/controls/OrbitControls';
 
+import TetrominoO from './GameObject/Tetrominoes/TetrominoO';
+import TetrominoS from './GameObject/Tetrominoes/TetrominoS';
+import TetrominoI from './GameObject/Tetrominoes/TetrominoI';
+import TetrominoL from './GameObject/Tetrominoes/TetrominoL';
+import TetrominoT from './GameObject/Tetrominoes/TetrominoT';
+import TetrominoJ from './GameObject/Tetrominoes/TetrominoJ';
+import TetrominoZ from './GameObject/Tetrominoes/TetrominoZ';
+
 // Setting
 const WIDTH = window.innerWidth;
 const HEIGHT = window.innerHeight;
@@ -51,237 +59,26 @@ textureLoader.load(texturePath, texture => {
 const control = new OrbitControls(camera, renderer.domElement);
 
 // 3D Object
-const Tetromino_T = () => {
-  const cube1_1 = new THREE.Mesh(
-    new THREE.BoxGeometry(),
-    new THREE.MeshBasicMaterial({color: ColorTexture.RED})
-  );
-  cube1_1.position.x = 0;
-  cube1_1.position.y = 0.5;
+const Tetromino_T = new TetrominoT(scene);
+Tetromino_T.create(); 
 
-  const cube1_2 = new THREE.Mesh(
-    new THREE.BoxGeometry(),
-    new THREE.MeshBasicMaterial({color: ColorTexture.RED})
-  );
-  cube1_2.position.x = 1;
-  cube1_2.position.y = 1.5;
-  
-  const cube1_3 = new THREE.Mesh(
-    new THREE.BoxGeometry(),
-    new THREE.MeshBasicMaterial({color: ColorTexture.RED})
-  );
-  cube1_3.position.x = -1;
-  cube1_3.position.y = 1.5;
+const Tetromino_S = new TetrominoS(scene);
+Tetromino_S.create();
 
-  const cube1_4 = new THREE.Mesh(
-    new THREE.BoxGeometry(),
-    new THREE.MeshBasicMaterial({color: ColorTexture.RED})
-  );
-  cube1_4.position.x = 0;
-  cube1_4.position.y = 1.5;
+const Tetromino_I = new TetrominoI(scene);
+Tetromino_I.create();
 
-  scene.add(cube1_1, cube1_2, cube1_3, cube1_4);
-}
+const Tetromino_O = new TetrominoO(scene);
+Tetromino_O.create();
 
-const Tetromino_S = () => {
-  const cube2_1 = new THREE.Mesh(
-    new THREE.BoxGeometry(),
-    new THREE.MeshBasicMaterial({color: ColorTexture.BLUE})
-  );
-  cube2_1.position.x = 3;
-  cube2_1.position.y = 0.5;
+const Tetromino_L = new TetrominoL(scene); 
+Tetromino_L.create();
 
-  const cube2_2 = new THREE.Mesh(
-    new THREE.BoxGeometry(),
-    new THREE.MeshBasicMaterial({color: ColorTexture.BLUE})
-  );
-  cube2_2.position.x = 4;
-  cube2_2.position.y = 0.5;
+const Tetromino_J = new TetrominoJ(scene);
+Tetromino_J.create();
 
-  const cube2_3 = new THREE.Mesh(
-    new THREE.BoxGeometry(),
-    new THREE.MeshBasicMaterial({color: ColorTexture.BLUE})
-  );
-  cube2_3.position.x = 4;
-  cube2_3.position.y = 1.5;
-
-  const cube2_4 = new THREE.Mesh(
-    new THREE.BoxGeometry(),
-    new THREE.MeshBasicMaterial({color: ColorTexture.BLUE})
-  );
-  cube2_4.position.x = 5;
-  cube2_4.position.y = 1.5;
-
-  scene.add(cube2_1, cube2_2, cube2_3, cube2_4);
-}
-
-const Tetromino_I = () => {
-  const cube3_1 = new THREE.Mesh(
-    new THREE.BoxGeometry(),
-    new THREE.MeshBasicMaterial({color: ColorTexture.GREEN})
-  );
-  cube3_1.position.x = -3;
-  cube3_1.position.y = 0.5;
-
-  const cube3_2 = new THREE.Mesh(
-    new THREE.BoxGeometry(),
-    new THREE.MeshBasicMaterial({color: ColorTexture.GREEN})
-  );
-  cube3_2.position.x = -3;
-  cube3_2.position.y = 1.5;
-  
-  const cube3_3 = new THREE.Mesh(
-    new THREE.BoxGeometry(),
-    new THREE.MeshBasicMaterial({color: ColorTexture.GREEN})
-  );
-  cube3_3.position.x = -3;
-  cube3_3.position.y = 2.5;
-
-  const cube3_4 = new THREE.Mesh(
-    new THREE.BoxGeometry(),
-    new THREE.MeshBasicMaterial({color: ColorTexture.GREEN})
-  );
-  cube3_4.position.x = -3;
-  cube3_4.position.y = 3.5;
-
-  scene.add(cube3_1, cube3_2, cube3_3, cube3_4);
-}
-
-const Tetromino_O = () => {
-  const cube4_1 = new THREE.Mesh(
-    new THREE.BoxGeometry(),
-    new THREE.MeshBasicMaterial({color: ColorTexture.SKY})
-  );
-  cube4_1.position.x = -5;
-  cube4_1.position.y = 0.5;
-  
-  const cube4_2 = new THREE.Mesh(
-    new THREE.BoxGeometry(),
-    new THREE.MeshBasicMaterial({color: ColorTexture.SKY})
-  );
-  cube4_2.position.x = -5;
-  cube4_2.position.y = 1.5;
-
-  const cube4_3 = new THREE.Mesh(
-    new THREE.BoxGeometry(),
-    new THREE.MeshBasicMaterial({color: ColorTexture.SKY})
-  );
-  cube4_3.position.x = -6;
-  cube4_3.position.y = 0.5;
-
-  const cube4_4 = new THREE.Mesh(
-    new THREE.BoxGeometry(),
-    new THREE.MeshBasicMaterial({color: ColorTexture.SKY})
-  );
-  cube4_4.position.x = -6;
-  cube4_4.position.y = 1.5;
-
-  scene.add(cube4_1, cube4_2, cube4_3, cube4_4);
-}
-
-const Tetromino_L = () => {
-  const cube5_1 = new THREE.Mesh(
-    new THREE.BoxGeometry(),
-    new THREE.MeshBasicMaterial({color: ColorTexture.GRASS})
-  );
-  cube5_1.position.x = -9;
-  cube5_1.position.y = 0.5;
-
-  const cube5_2 = new THREE.Mesh(
-    new THREE.BoxGeometry(),
-    new THREE.MeshBasicMaterial({color: ColorTexture.GRASS})
-  );
-  cube5_2.position.x = -9;
-  cube5_2.position.y = 1.5;
-
-  const cube5_3 = new THREE.Mesh(
-    new THREE.BoxGeometry(),
-    new THREE.MeshBasicMaterial({color: ColorTexture.GRASS})
-  );
-  cube5_3.position.x = -9;
-  cube5_3.position.y = 2.5;
-
-  const cube5_4 = new THREE.Mesh(
-    new THREE.BoxGeometry(),
-    new THREE.MeshBasicMaterial({color: ColorTexture.GRASS})
-  );
-  cube5_4.position.x = -8;
-  cube5_4.position.y = 0.5;
-
-  scene.add(cube5_1, cube5_2, cube5_3, cube5_4);
-}
-
-const Tetromino_J = () => {
-  const cube6_1 = new THREE.Mesh(
-    new THREE.BoxGeometry(),
-    new THREE.MeshBasicMaterial({color: ColorTexture.VIOLET})
-  );
-  cube6_1.position.x = 7;
-  cube6_1.position.y = 0.5;
-
-  const cube6_2 = new THREE.Mesh(
-    new THREE.BoxGeometry(),
-    new THREE.MeshBasicMaterial({color: ColorTexture.VIOLET})
-  );
-  cube6_2.position.x = 8;
-  cube6_2.position.y = 0.5;
-
-  const cube6_3 = new THREE.Mesh(
-    new THREE.BoxGeometry(),
-    new THREE.MeshBasicMaterial({color: ColorTexture.VIOLET})
-  );
-  cube6_3.position.x = 8;
-  cube6_3.position.y = 1.5;
-
-  const cube6_4 = new THREE.Mesh(
-    new THREE.BoxGeometry(),
-    new THREE.MeshBasicMaterial({color: ColorTexture.VIOLET})
-  );
-  cube6_4.position.x = 8;
-  cube6_4.position.y = 2.5;
-
-  scene.add(cube6_1, cube6_2, cube6_3, cube6_4);
-}
-
-const Tetromino_Z = () => {
-  const cube7_1 = new THREE.Mesh(
-    new THREE.BoxGeometry(),
-    new THREE.MeshBasicMaterial({color: ColorTexture.SCARLET})
-  ); 
-  cube7_1.position.x = 10;
-  cube7_1.position.y = 1.5;
-  
-  const cube7_2 = new THREE.Mesh(
-    new THREE.BoxGeometry(),
-    new THREE.MeshBasicMaterial({color: ColorTexture.SCARLET})
-  ); 
-  cube7_2.position.x = 11;
-  cube7_2.position.y = 1.5;
-
-  const cube7_3 = new THREE.Mesh(
-    new THREE.BoxGeometry(),
-    new THREE.MeshBasicMaterial({color: ColorTexture.SCARLET})
-  ); 
-  cube7_3.position.x = 11;
-  cube7_3.position.y = 0.5;
-
-  const cube7_4 = new THREE.Mesh(
-    new THREE.BoxGeometry(),
-    new THREE.MeshBasicMaterial({color: ColorTexture.SCARLET})
-  ); 
-  cube7_4.position.x = 12;
-  cube7_4.position.y = 0.5;
-
-  scene.add(cube7_1, cube7_2, cube7_3, cube7_4);
-}
-
-Tetromino_T();
-Tetromino_S();
-Tetromino_I();
-Tetromino_O();
-Tetromino_L();
-Tetromino_J();
-Tetromino_Z();
+const Tetromino_Z = new TetrominoZ(scene);
+Tetromino_Z.create(); 
 
 // Add Sound. 
 const listener = new THREE.AudioListener();
