@@ -12,7 +12,8 @@ enum ColorTexture {
   RED = 0xff0000,
   GREEN = 0x00ff00,
   BLUE = 0x0000ff,
-  GRASS = 0x057812
+  GRASS = 0x057812,
+  VIOLET = 0xad32ff
 }
 
 // Renderer 
@@ -209,11 +210,45 @@ const Tetromino_L = () => {
   scene.add(cube5_1, cube5_2, cube5_3, cube5_4);
 }
 
+const Tetromino_J = () => {
+  const cube6_1 = new THREE.Mesh(
+    new THREE.BoxGeometry(),
+    new THREE.MeshBasicMaterial({color: ColorTexture.VIOLET})
+  );
+  cube6_1.position.x = 7;
+  cube6_1.position.y = 0.5;
+
+  const cube6_2 = new THREE.Mesh(
+    new THREE.BoxGeometry(),
+    new THREE.MeshBasicMaterial({color: ColorTexture.VIOLET})
+  );
+  cube6_2.position.x = 8;
+  cube6_2.position.y = 0.5;
+
+  const cube6_3 = new THREE.Mesh(
+    new THREE.BoxGeometry(),
+    new THREE.MeshBasicMaterial({color: ColorTexture.VIOLET})
+  );
+  cube6_3.position.x = 8;
+  cube6_3.position.y = 1.5;
+
+  const cube6_4 = new THREE.Mesh(
+    new THREE.BoxGeometry(),
+    new THREE.MeshBasicMaterial({color: ColorTexture.VIOLET})
+  );
+  cube6_4.position.x = 8;
+  cube6_4.position.y = 2.5;
+
+
+  scene.add(cube6_1, cube6_2, cube6_3, cube6_4);
+}
+
 Tetromino_T();
 Tetromino_S();
 Tetromino_I();
 Tetromino_O();
 Tetromino_L();
+Tetromino_J();
 
 
 function draw() {
