@@ -11,7 +11,8 @@ enum ColorTexture {
   SKY = 0x00f0ff,
   RED = 0xff0000,
   GREEN = 0x00ff00,
-  BLUE = 0x0000ff
+  BLUE = 0x0000ff,
+  GRASS = 0x057812
 }
 
 // Renderer 
@@ -26,11 +27,19 @@ renderer.setSize(WIDTH, HEIGHT);
 // Camera 
 const camera = new THREE.PerspectiveCamera(60, aRatio, 0.1, 1000);
 
-camera.position.set(0, 5, 5);
+camera.position.set(0, 2, 16);
 camera.lookAt(0, 0, 0);
 
 // Scene 
 const scene = new THREE.Scene;
+
+// Background Texture
+// Texture Credit: https://pixabay.com/photos/gameboy-tetris-nintendo-5759550
+const textureLoader = new THREE.TextureLoader();
+const texturePath = 'assets/image/background/Gameboy.jpeg';
+textureLoader.load(texturePath, texture => {
+  scene.background = texture;
+})
 
 // Grid
 const grid = new THREE.GridHelper(4, 12, 0x888888, 0x444444);
@@ -131,14 +140,80 @@ const Tetromino_I = () => {
     new THREE.MeshBasicMaterial({color: ColorTexture.GREEN})
   );
   cube3_4.position.x = -3;
-  cube3_4.position.y = 2.5;
+  cube3_4.position.y = 3.5;
 
   scene.add(cube3_1, cube3_2, cube3_3, cube3_4);
+}
+
+const Tetromino_O = () => {
+  const cube4_1 = new THREE.Mesh(
+    new THREE.BoxGeometry(),
+    new THREE.MeshBasicMaterial({color: ColorTexture.SKY})
+  );
+  cube4_1.position.x = -5;
+  cube4_1.position.y = 0.5;
+  
+  const cube4_2 = new THREE.Mesh(
+    new THREE.BoxGeometry(),
+    new THREE.MeshBasicMaterial({color: ColorTexture.SKY})
+  );
+  cube4_2.position.x = -5;
+  cube4_2.position.y = 1.5;
+
+  const cube4_3 = new THREE.Mesh(
+    new THREE.BoxGeometry(),
+    new THREE.MeshBasicMaterial({color: ColorTexture.SKY})
+  );
+  cube4_3.position.x = -6;
+  cube4_3.position.y = 0.5;
+
+  const cube4_4 = new THREE.Mesh(
+    new THREE.BoxGeometry(),
+    new THREE.MeshBasicMaterial({color: ColorTexture.SKY})
+  );
+  cube4_4.position.x = -6;
+  cube4_4.position.y = 1.5;
+
+  scene.add(cube4_1, cube4_2, cube4_3, cube4_4);
+}
+
+const Tetromino_L = () => {
+  const cube5_1 = new THREE.Mesh(
+    new THREE.BoxGeometry(),
+    new THREE.MeshBasicMaterial({color: ColorTexture.GRASS})
+  );
+  cube5_1.position.x = -10;
+  cube5_1.position.y = 0.5;
+
+  const cube5_2 = new THREE.Mesh(
+    new THREE.BoxGeometry(),
+    new THREE.MeshBasicMaterial({color: ColorTexture.GRASS})
+  );
+  cube5_2.position.x = -10;
+  cube5_2.position.y = 1.5;
+
+  const cube5_3 = new THREE.Mesh(
+    new THREE.BoxGeometry(),
+    new THREE.MeshBasicMaterial({color: ColorTexture.GRASS})
+  );
+  cube5_3.position.x = -10;
+  cube5_3.position.y = 2.5;
+
+  const cube5_4 = new THREE.Mesh(
+    new THREE.BoxGeometry(),
+    new THREE.MeshBasicMaterial({color: ColorTexture.GRASS})
+  );
+  cube5_4.position.x = -9;
+  cube5_4.position.y = 0.5;
+
+  scene.add(cube5_1, cube5_2, cube5_3, cube5_4);
 }
 
 Tetromino_T();
 Tetromino_S();
 Tetromino_I();
+Tetromino_O();
+Tetromino_L();
 
 
 function draw() {
