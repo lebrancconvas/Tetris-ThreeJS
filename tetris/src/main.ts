@@ -43,26 +43,20 @@ const control = new OrbitControls(camera, renderer.domElement);
 console.log(control);
 
 // 3D Object
-const Tetromino_T = new TetrominoT(scene);
-Tetromino_T.create(); 
 
-const Tetromino_S = new TetrominoS(scene);
-Tetromino_S.create();
+const Tetrominoes = [
+  new TetrominoT(scene), 
+  new TetrominoS(scene), 
+  new TetrominoI(scene), 
+  new TetrominoO(scene), 
+  new TetrominoL(scene), 
+  new TetrominoJ(scene), 
+  new TetrominoZ(scene)
+];
 
-const Tetromino_I = new TetrominoI(scene);
-Tetromino_I.create();
-
-const Tetromino_O = new TetrominoO(scene);
-Tetromino_O.create();
-
-const Tetromino_L = new TetrominoL(scene); 
-Tetromino_L.create();
-
-const Tetromino_J = new TetrominoJ(scene);
-Tetromino_J.create();
-
-const Tetromino_Z = new TetrominoZ(scene);
-Tetromino_Z.create(); 
+Tetrominoes.map(Tetromino => {
+  Tetromino.create();
+})
 
 // Add Sound. 
 const backgroundmusic = new BGM();
