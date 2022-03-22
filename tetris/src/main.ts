@@ -2,13 +2,17 @@ import * as THREE from 'three';
 import MainScene from './Scene/MainScene';
 import {OrbitControls} from 'three/examples/jsm/controls/OrbitControls';
 
-import TetrominoO from './GameObject/Tetrominoes/TetrominoO';
-import TetrominoS from './GameObject/Tetrominoes/TetrominoS';
-import TetrominoI from './GameObject/Tetrominoes/TetrominoI';
-import TetrominoL from './GameObject/Tetrominoes/TetrominoL';
-import TetrominoT from './GameObject/Tetrominoes/TetrominoT';
-import TetrominoJ from './GameObject/Tetrominoes/TetrominoJ';
-import TetrominoZ from './GameObject/Tetrominoes/TetrominoZ';
+import TetrominoO from './GameObject/VisualObject/Tetrominoes/TetrominoO';
+import TetrominoS from './GameObject/VisualObject/Tetrominoes/TetrominoS';
+import TetrominoI from './GameObject/VisualObject/Tetrominoes/TetrominoI';
+import TetrominoL from './GameObject/VisualObject/Tetrominoes/TetrominoL';
+import TetrominoT from './GameObject/VisualObject/Tetrominoes/TetrominoT';
+import TetrominoJ from './GameObject/VisualObject/Tetrominoes/TetrominoJ';
+import TetrominoZ from './GameObject/VisualObject/Tetrominoes/TetrominoZ';
+
+import BGM from './GameObject/AudioObject/BGM';
+
+import BackgroundTexture from './GameObject/VisualObject/BackgroundTexture';
 
 // Setting
 const WIDTH = window.innerWidth;
@@ -33,13 +37,9 @@ camera.lookAt(0, 0, 0);
 // Scene 
 const scene = new THREE.Scene;
 
-// Background Texture
-// Texture Credit: https://pixabay.com/photos/gameboy-tetris-nintendo-5759550
-const textureLoader = new THREE.TextureLoader();
-const texturePath = 'assets/image/background/Gameboy.jpeg';
-textureLoader.load(texturePath, texture => {
-  scene.background = texture;
-})
+// Background Texture 
+const texture = new BackgroundTexture(scene);
+texture.textureLoading('./assets/image/background/Gameboy.jpeg'); 
 
 // Grid
 // const grid = new THREE.GridHelper(4, 12, 0x888888, 0x444444);
@@ -71,22 +71,13 @@ const Tetromino_Z = new TetrominoZ(scene);
 Tetromino_Z.create(); 
 
 // Add Sound. 
-const listener = new THREE.AudioListener();
-camera.add(listener);
+const backgroundmusic = new BGM();
+backgroundmusic.bgmLoad();
 
-const audioLoader = new THREE.AudioLoader();
-
-const bgm = new THREE.Audio(listener);
-
-audioLoader.load('assets/audio/BGM/Tetris_Theme.mp3', buffer => {
-  bgm.setBuffer(buffer);
-  bgm.setLoop(true);
-  bgm.setVolume(0.3);
-});
-
-function draw() {
+// Let the scene animated. 
+function animate() {
   renderer.render(scene, camera);
-  requestAnimationFrame(draw);
+  requestAnimationFrame(animate);
 }
 
-draw();
+animate();
