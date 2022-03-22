@@ -1,14 +1,7 @@
 import * as THREE from 'three';
-import MainScene from './Scene/MainScene';
 import {OrbitControls} from 'three/examples/jsm/controls/OrbitControls';
 
-import TetrominoO from './GameObject/VisualObject/Tetrominoes/TetrominoO';
-import TetrominoS from './GameObject/VisualObject/Tetrominoes/TetrominoS';
-import TetrominoI from './GameObject/VisualObject/Tetrominoes/TetrominoI';
-import TetrominoL from './GameObject/VisualObject/Tetrominoes/TetrominoL';
-import TetrominoT from './GameObject/VisualObject/Tetrominoes/TetrominoT';
-import TetrominoJ from './GameObject/VisualObject/Tetrominoes/TetrominoJ';
-import TetrominoZ from './GameObject/VisualObject/Tetrominoes/TetrominoZ';
+import {TetrominoO, TetrominoS, TetrominoI, TetrominoL, TetrominoT, TetrominoJ, TetrominoZ} from './GameObject/VisualObject/Tetrominoes';
 
 import BGM from './GameObject/AudioObject/BGM';
 
@@ -47,6 +40,7 @@ texture.textureLoading('./assets/image/background/Gameboy.jpeg');
 
 // Orbital Controls
 const control = new OrbitControls(camera, renderer.domElement);
+console.log(control);
 
 // 3D Object
 const Tetromino_T = new TetrominoT(scene);
