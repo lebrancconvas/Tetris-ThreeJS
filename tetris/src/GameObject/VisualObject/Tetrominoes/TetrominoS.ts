@@ -13,19 +13,14 @@ class TetrominoS extends THREE.Mesh {
 	}
 
 	create() {
-		const cube1 = new ObjectFactory(this.scene);
-		cube1.createCube(this.Color, 3, 0.5, 0);
+		const cube = new ObjectFactory(this.scene);
 
-		const cube2 = new ObjectFactory(this.scene);
-		cube1.createCube(this.Color, 4, 0.5, 0);
-
-		const cube3 = new ObjectFactory(this.scene);
-		cube1.createCube(this.Color, 4, 1.5, 0);
-		
-		const cube4 = new ObjectFactory(this.scene);
-		cube1.createCube(this.Color, 5, 1.5, 0);
+		cube.createCube(this.Color, 3, 0.5, 0);
+		cube.createCube(this.Color, 4, 0.5, 0);
+		cube.createCube(this.Color, 4, 1.5, 0);
+		cube.createCube(this.Color, 5, 1.5, 0);
 	
-		this.scene.add(cube1, cube2, cube3, cube4);
+		this.scene.add(cube);
 	}
 }
 
