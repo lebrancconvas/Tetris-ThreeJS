@@ -1,5 +1,5 @@
 import * as THREE from 'three';
-import ObjectFactory from '../ObjectFactory';
+import ObjectFactory from '../../ObjectFactory';
 
 class TetrominoL extends THREE.Mesh {
 	private readonly scene = new THREE.Scene;

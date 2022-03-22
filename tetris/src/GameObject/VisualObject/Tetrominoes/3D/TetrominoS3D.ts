@@ -1,5 +1,5 @@
 import * as THREE from 'three';
-import ObjectFactory from '../ObjectFactory';
+import ObjectFactory from '../../ObjectFactory';
 
 // Create Mesh and then add mesh to Scene. 
 
