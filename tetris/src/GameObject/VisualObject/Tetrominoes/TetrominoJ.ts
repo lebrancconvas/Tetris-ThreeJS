@@ -3,7 +3,7 @@ import ObjectFactory from '../ObjectFactory';
 
 class TetrominoJ extends THREE.Mesh {
 	private readonly scene = new THREE.Scene;
-	private readonly Color = 0xad32ff;
+	private readonly Color = 0xad32ff; // Violet 
 
 	constructor(scene: THREE.Scene) {
 		super();
