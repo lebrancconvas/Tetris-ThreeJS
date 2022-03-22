@@ -2,7 +2,6 @@ import * as THREE from 'three';
 import {OrbitControls} from 'three/examples/jsm/controls/OrbitControls';
 
 import {TetrominoO, TetrominoS, TetrominoI, TetrominoL, TetrominoT, TetrominoJ, TetrominoZ} from './GameObject/VisualObject/Tetrominoes';
-import ObjectFactory from './GameObject/VisualObject/ObjectFactory';
 
 import BGM from './GameObject/AudioObject/BGM';
 
@@ -13,6 +12,7 @@ const WIDTH = window.innerWidth;
 const HEIGHT = window.innerHeight;
 const aRatio = WIDTH / HEIGHT;
 const π = Math.PI;
+console.log(π);
 
 // Renderer 
 const renderer = new THREE.WebGLRenderer({
